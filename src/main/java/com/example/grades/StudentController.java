@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 @RequestMapping("/api")
 public class StudentController {
 
-    
+
 private static final Logger logger =
         LoggerFactory.getLogger(StudentController.class);
 
@@ -38,4 +38,11 @@ private static final Logger logger =
         logger.info("Added student: id={}, name={}", s.getId(), s.getName());
         return s;
     }
+
+    @GetMapping("/health")
+public Map<String, String> health() {
+    logger.info("Health check called");
+    return Map.of("status", "UP");
+}
+
 }
